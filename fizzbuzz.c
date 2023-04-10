@@ -1,32 +1,36 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   fizzbuzz.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mpeterso <mpeterso@student.42madrid.com>   +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 09:51:22 by mpeterso          #+#    #+#             */
-/*   Updated: 2023/01/22 10:00:10 by mpeterso         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <unistd.h>
+#include <stdlib.h>
 
-int main (void)
+void	ft_putnbr(int n)
 {
-	char x;
+	char c;
 
-	while (x > 0 && x < 100)
-	{
-		if (x % 3 == 0)
-			write(1, "fizz", 5);
-		else if (x % 5 == 0)
-			write(1, "buzz", 5);
-		else if (x % 3 == 0 && x % 5 == 0)
-			write(1, "fizzbuzz", 9);
-		else
-			write(1, &x, 1);
-	}
-	write(1, "\n", 1);
+	if (n >= 10)
+		ft_putnbr(n / 10);
+	c = (n % 10) + '0';
+	write(1, &c, 1);
 }
 
+int main()
+{
+	int nb = 11;
+	ft_putnbr(nb);
+	return 0;}	
+
+/*int nb = 1;
+
+	while(nb <= 100)
+	{
+		if (nb % 3 == 0)
+			write(1, "fizz", 4);
+		else if (nb % 5 == 0)
+			write(1, "buzz", 4);
+		else if (nb % 3 == 0 && nb % 5 == 0)
+			write(1, "fizzbuzz", 8);
+		else
+			ft_putnbr(nb);
+		write(1, "\n", 1);
+		nb++;
+	}
+}*/
+	
